@@ -11,7 +11,9 @@ public class Main {
 
         /*System.out.println(numbers.removeFirst());
         System.out.println(numbers.remove(4));*/
-        System.out.println(numbers.removeLast());
-        System.out.println(numbers);
+        System.out.println("removeLast() : " + numbers.removeLast());
+        System.out.println("get(2) : " + numbers.get(2));
+        System.out.println("indexOf(15) : "+numbers.indexOf(15));
+        System.out.println("numbers : " + numbers);
     }
 }

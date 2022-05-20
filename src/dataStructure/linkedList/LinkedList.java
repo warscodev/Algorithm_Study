@@ -16,7 +16,6 @@ public class LinkedList {
 
     }
 
-
     public void addFirst(Object input){
         Node newNode = new Node(input);
         newNode.next = head;
@@ -123,10 +122,46 @@ public class LinkedList {
         return returnData;
     }
 
-
     public Object removeLast(){
         return remove(size-1);
     }
+
+    public int size(){
+        return size;
+    }
+
+    public Object get(int k){
+        if(k > size-1){
+            return new IndexOutOfBoundsException();
+        }
+
+        Node temp = node(k);
+        return temp.data;
+
+    }
+
+    // 값이 있다면 그 값이 발견되는 첫번째 인덱스 값을 리턴하고 값이 없다면 -1을 리턴
+    public int indexOf(Object data){
+
+        Node temp = head;
+
+        int index = 0;
+
+        while (temp.data != data){
+            temp = temp.next;
+            index++;
+
+            if(temp.data == null){
+                return -1;
+            }
+        }
+
+        return index;
+
+
+    }
+
+
 
 
 }
