@@ -134,10 +134,8 @@ public class LinkedList {
         if(k > size-1){
             return new IndexOutOfBoundsException();
         }
-
         Node temp = node(k);
         return temp.data;
-
     }
 
     // 값이 있다면 그 값이 발견되는 첫번째 인덱스 값을 리턴하고 값이 없다면 -1을 리턴
@@ -151,15 +149,16 @@ public class LinkedList {
             temp = temp.next;
             index++;
 
-            if(temp.data == null){
+            if(temp == null){
                 return -1;
             }
         }
 
         return index;
 
-
     }
+
+
 
 
 
