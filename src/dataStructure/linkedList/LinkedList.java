@@ -1,7 +1,6 @@
 package dataStructure.linkedList;
 
 public class LinkedList {
-
     private Node head;
     private Node tail;
     private int size = 0;
@@ -97,7 +96,36 @@ public class LinkedList {
         }
 
         return new IndexOutOfBoundsException();
+    }
 
+    public Object remove(int k){
+
+        if(k > size-1){
+            return new IndexOutOfBoundsException();
+        }
+
+        if(k == 0){
+            removeFirst();
+        }
+
+        Node temp = node(k-1);
+        Node todoDeleted = temp.next;
+        temp.next = temp.next.next;
+        Object returnData = todoDeleted.data;
+
+        if(todoDeleted == tail){
+            tail = temp;
+        }
+
+        todoDeleted = null;
+        size--;
+
+        return returnData;
+    }
+
+
+    public Object removeLast(){
+        return remove(size-1);
     }
 
 
