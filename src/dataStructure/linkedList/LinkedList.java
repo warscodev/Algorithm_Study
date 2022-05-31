@@ -140,22 +140,67 @@ public class LinkedList {
 
     // 값이 있다면 그 값이 발견되는 첫번째 인덱스 값을 리턴하고 값이 없다면 -1을 리턴
     public int indexOf(Object data){
-
         Node temp = head;
-
         int index = 0;
-
         while (temp.data != data){
             temp = temp.next;
             index++;
-
             if(temp == null){
                 return -1;
             }
         }
-
         return index;
+    }
 
+    public ListIterator listIterator(){
+        return new ListIterator();
+    }
+
+    class ListIterator{
+
+        private Node next;
+        private Node lastReturned;
+        private int nextIndex;
+
+        ListIterator(){
+            next = head;
+        }
+
+        public Object next(){
+            lastReturned = next;
+            next = next.next;
+            nextIndex++;
+            return lastReturned.data;
+        }
+
+        public boolean hasNext(){
+            return nextIndex < size();
+        }
+
+        public void add(Object input){
+            Node newNode = new Node(input);
+
+            if(lastReturned == null){
+                head = newNode;
+            }else {
+                lastReturned.next = newNode;
+            }
+
+            newNode.next = next;
+            lastReturned = newNode;
+            nextIndex++;
+            size++;
+        }
+
+        public void remove(){
+
+            if(nextIndex == 0){
+                throw new IllegalStateException();
+            }
+
+            LinkedList.this.remove(nextIndex-1);
+            nextIndex--;
+        }
     }
 
 
