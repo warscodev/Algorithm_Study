@@ -1,9 +1,9 @@
 class Solution {
     public String solution(int age) {
-        String[] alphabet = new String[10];
+        String[] alphabet = new String[9];
         char currentChar = 'a';
 
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 9; i++) {
             alphabet[i] = String.valueOf(currentChar);
             currentChar++;
         }
